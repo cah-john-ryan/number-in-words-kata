@@ -11,27 +11,27 @@ public class TextualInteger {
     }
 
     public String toString() {
-        String result = "";
-
-        result = evaluateSecondDigitValue(20, result);
-        result = evaluateSecondDigitValue(30, result);
-        result = evaluateSecondDigitValue(40, result);
-        result = evaluateSecondDigitValue(50, result);
-        result = evaluateSecondDigitValue(60, result);
-        result = evaluateSecondDigitValue(70, result);
-        result = evaluateSecondDigitValue(80, result);
-        result = evaluateSecondDigitValue(90, result);
-
-        if (result.isEmpty()) {
+        if (numberMap.get(this.value) != null) {
             return numberMap.get(this.value);
-        } else {
-            return result;
         }
+
+        String secondWord = "";
+
+        secondWord = getSecondWord(20, secondWord);
+        secondWord = getSecondWord(30, secondWord);
+        secondWord = getSecondWord(40, secondWord);
+        secondWord = getSecondWord(50, secondWord);
+        secondWord = getSecondWord(60, secondWord);
+        secondWord = getSecondWord(70, secondWord);
+        secondWord = getSecondWord(80, secondWord);
+        secondWord = getSecondWord(90, secondWord);
+
+        return secondWord + numberMap.get(this.value % 10);
     }
 
-    private String evaluateSecondDigitValue(int x, String result) {
+    private String getSecondWord(int x, String result) {
         if (x < this.value && this.value < x + 10) {
-            result = numberMap.get(x) + " " + numberMap.get(this.value - x);
+            result = numberMap.get(x) + " ";
         }
         return result;
     }
@@ -46,24 +46,24 @@ public class TextualInteger {
             entry(6, "six"),
             entry(7, "seven"),
             entry(8, "eight"),
-            entry(  9, "nine"),
-            entry(  10, "ten"),
-            entry(  11, "eleven"),
-            entry(  12, "twelve"),
-            entry(  13, "thirteen"),
-            entry(  14, "fourteen"),
-            entry(  15, "fifteen"),
-            entry(  16, "sixteen"),
-            entry(  17, "seventeen"),
-            entry(  18, "eighteen"),
-            entry(  19, "nineteen"),
-            entry(  20, "twenty"),
-            entry(  30, "thirty"),
-            entry(  40, "forty"),
-            entry(  50, "fifty"),
-            entry(  60, "sixty"),
-            entry(  70, "seventy"),
-            entry(  80, "eighty"),
-            entry(  90, "ninety")
+            entry(9, "nine"),
+            entry(10, "ten"),
+            entry(11, "eleven"),
+            entry(12, "twelve"),
+            entry(13, "thirteen"),
+            entry(14, "fourteen"),
+            entry(15, "fifteen"),
+            entry(16, "sixteen"),
+            entry(17, "seventeen"),
+            entry(18, "eighteen"),
+            entry(19, "nineteen"),
+            entry(20, "twenty"),
+            entry(30, "thirty"),
+            entry(40, "forty"),
+            entry(50, "fifty"),
+            entry(60, "sixty"),
+            entry(70, "seventy"),
+            entry(80, "eighty"),
+            entry(90, "ninety")
     );
 }
