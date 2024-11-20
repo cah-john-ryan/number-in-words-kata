@@ -49,8 +49,7 @@ class TextualIntegerTest {
     @ParameterizedTest
     @MethodSource
     void singleWordResultTest(int number, String expected) {
-        var subject = new TextualInteger(number);
-        assertEquals(expected, subject.toString());
+        assertEquals(expected, IntegerUtility.toVerboseText(number));
     }
 
     private static Stream<Arguments> twoWordTest() {
@@ -133,7 +132,6 @@ class TextualIntegerTest {
     @ParameterizedTest
     @MethodSource
     void twoWordTest(int number, String expected) {
-        var subject = new TextualInteger(number);
-        assertEquals(expected, subject.toString());
+        assertEquals(expected, IntegerUtility.toVerboseText(number));
     }
 }

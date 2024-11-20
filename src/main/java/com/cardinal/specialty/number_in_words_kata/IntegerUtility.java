@@ -4,26 +4,21 @@ import java.util.Map;
 
 import static java.util.Map.entry;
 
-public class TextualInteger {
-    private final int value;
-    public TextualInteger(int value) {
-        this.value = value;
-    }
-
-    public String toString() {
-        if (numberMap.get(this.value) != null) {
-            return numberMap.get(this.value);
+public class IntegerUtility {
+    public static String toVerboseText(int value) {
+        if (numberMap.get(value) != null) {
+            return numberMap.get(value);
         }
 
-        return getSecondWord() + " " + getFirstWord();
+        return getSecondWord(value) + " " + getFirstWord(value);
     }
 
-    private String getFirstWord() {
-        return numberMap.get(this.value % 10);
+    private static String getFirstWord(int value) {
+        return numberMap.get(value % 10);
     }
 
-    private String getSecondWord() {
-        var secondDigit = this.value / 10;
+    private static String getSecondWord(int value) {
+        var secondDigit = value / 10;
         return numberMap.get(secondDigit * 10);
     }
 
