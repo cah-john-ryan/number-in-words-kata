@@ -15,10 +15,16 @@ public class TextualInteger {
             return numberMap.get(this.value);
         }
 
-        var secondDigit = this.value / 10;
-        var secondWord = numberMap.get(secondDigit * 10);
+        return getSecondWord() + " " + getFirstWord();
+    }
 
-        return secondWord + " " + numberMap.get(this.value % 10);
+    private String getFirstWord() {
+        return numberMap.get(this.value % 10);
+    }
+
+    private String getSecondWord() {
+        var secondDigit = this.value / 10;
+        return numberMap.get(secondDigit * 10);
     }
 
     private static final Map<Integer, String> numberMap = Map.ofEntries(
