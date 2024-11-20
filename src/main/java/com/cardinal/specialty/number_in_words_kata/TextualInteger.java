@@ -15,25 +15,10 @@ public class TextualInteger {
             return numberMap.get(this.value);
         }
 
-        String secondWord = "";
+        var secondDigit = this.value / 10;
+        var secondWord = numberMap.get(secondDigit * 10);
 
-        secondWord = getSecondWord(20, secondWord);
-        secondWord = getSecondWord(30, secondWord);
-        secondWord = getSecondWord(40, secondWord);
-        secondWord = getSecondWord(50, secondWord);
-        secondWord = getSecondWord(60, secondWord);
-        secondWord = getSecondWord(70, secondWord);
-        secondWord = getSecondWord(80, secondWord);
-        secondWord = getSecondWord(90, secondWord);
-
-        return secondWord + numberMap.get(this.value % 10);
-    }
-
-    private String getSecondWord(int x, String result) {
-        if (x < this.value && this.value < x + 10) {
-            result = numberMap.get(x) + " ";
-        }
-        return result;
+        return secondWord + " " + numberMap.get(this.value % 10);
     }
 
     private static final Map<Integer, String> numberMap = Map.ofEntries(
